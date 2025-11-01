@@ -1,0 +1,119 @@
+# ============================================================================
+# PODCAST-AGENT BACKEND
+# AI MicroAgent for Podcast Generation
+# ============================================================================
+
+# --- BUILD SYSTEM ----
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# --- PROJECT METADATA ----
+[project]
+name = "podcast-agent-backend"
+version = "1.0.0"
+description = "AI MicroAgent for Podcast Generation"
+authors = [
+    {name = "Amir Abdallah", email = "amir.abdallah@example.com"}
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.11"
+
+# --- MAIN DEPENDENCIES ----
+dependencies = [
+    # --- API & SERVER ----
+    "fastapi",
+    "uvicorn[standard]",
+
+    # --- DATABASE & STORAGE ----
+    "sqlalchemy",
+    "asyncpg",
+    "supabase",               # For Postgres DB and Object Storage (audio files)
+
+    # --- FILE UPLOADS ----
+    "python-multipart",       # Required for PDF uploads via FastAPI
+
+    # --- CONFIGURATION & VALIDATION ----
+    "pydantic",
+    "pydantic-settings",
+    "python-dotenv",          # Environment variable management
+
+    # --- AI CORE: MODELS, AGENTS, AND ORCHESTRATION ----
+    "google-genai",           # Gemini models (including native TTS in preview models)
+    "langchain",
+    "langgraph",
+    "langsmith",
+    "dspy-ai",
+
+    # --- CONTEXT INGESTION TOOLS ----
+    "firecrawl-py",           # Web content crawling via FireCrawl API
+    "pypdf",                  # Extract text from uploaded PDFs
+
+    # --- BACKGROUND TASKS ----
+    "celery[redis]",          # Async task queue with Redis support
+    "redis",
+]
+
+# --- OPTIONAL DEPENDENCY GROUPS ----
+[project.optional-dependencies]
+
+# --- DEVELOPMENT & NOTEBOOKS ----
+dev = [
+    # Testing
+    "pytest",
+    "pytest-asyncio",
+    "httpx",                  # For async API testing
+
+    # Code Quality
+    "mypy",
+    "ruff",
+    "types-redis",            # Type stubs for mypy
+
+    # Local Dev & Notebooks (shared env with backend)
+    "ipykernel",
+    "jupyterlab",
+]
+
+# --- PRODUCTION DEPLOYMENT ----
+prod = [
+    "gunicorn",
+]
+
+# --- CONVENIENCE SCRIPTS ----
+[project.scripts]
+start-dev = "uvicorn agent.app.main:app --reload"
+start-prod = "gunicorn agent.app.main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000"
+test = "pytest"
+
+# --- TOOL CONFIGURATION ----
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+include = ["agent"]
+exclude = ["**/tests", "**/node_modules"]
+
+[tool.pytest.ini_options]
+python_files = "test_*.py"
+markers = [
+    "integration: marks tests as integration tests (slow)",
+    "unit: marks tests as fast unit tests",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+exclude = [
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".pytest_cache",
+]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
