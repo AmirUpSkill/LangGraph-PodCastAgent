@@ -1,0 +1,243 @@
+# ========================================
+# Environment Variables & Secrets
+# ========================================
+.env
+.env.local
+.env.*.local
+*.env
+!.env.example
+
+# ========================================
+# Python / Backend (agent/)
+# ========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+.virtualenv
+
+# UV (Python package manager)
+uv.lock
+.uv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+notebooks/.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pyre/
+
+# Pydantic / Ruff
+.ruff_cache/
+
+# ========================================
+# Frontend / Next.js (client/)
+# ========================================
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+.swc/
+
+# Production
+build/
+dist/
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Turbo
+.turbo
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# ========================================
+# IDEs & Editors
+# ========================================
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains (PyCharm, WebStorm, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ========================================
+# Docker
+# ========================================
+*.log
+.dockerignore
+
+# ========================================
+# Database & Storage
+# ========================================
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Postgres dumps
+*.sql
+*.dump
+
+# ========================================
+# OS-specific
+# ========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ========================================
+# Logs & Temporary Files
+# ========================================
+*.log
+logs/
+*.tmp
+*.temp
+tmp/
+temp/
+
+# ========================================
+# AI & ML Artifacts
+# ========================================
+# LangSmith traces (if stored locally)
+.langsmith/
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.pkl
+*.joblib
+
+# ========================================
+# Documentation Build Artifacts
+# ========================================
+docs/_build/
+docs/.doctrees/
+
+# ========================================
+# Audio Files (if storing locally during dev)
+# ========================================
+# Uncomment if you want to ignore generated audio
+# *.mp3
+# *.wav
+# *.m4a
