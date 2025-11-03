@@ -1,0 +1,33 @@
+# Environment files - NEVER commit secrets
+.env
+.env.*
+
+# Virtual environment
+.venv-notebooks/
+
+# Generated audio files - too large for git
+*.wav
+*.mp3
+*.m4a
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Test files and temporary data
+Test.pdf
+test_*.wav
+test_*.mp3
+temp_*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
