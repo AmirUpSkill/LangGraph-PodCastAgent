@@ -47,6 +47,7 @@ dependencies = [
     # --- CONTEXT INGESTION TOOLS ----
     "firecrawl-py",           # Web content crawling via FireCrawl API
     "pypdf",                  # Extract text from uploaded PDFs
+    "pymupdf",                # Fast PDF text extraction (PyMuPDF/fitz)
 
     # --- BACKGROUND TASKS ----
     "celery[redis]",          # Async task queue with Redis support
